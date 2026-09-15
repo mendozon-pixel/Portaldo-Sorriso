@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portal do Sorriso - Clínica Odontológica em São Paulo. Cuidando do seu sorriso com excelência e tecnologia.">
+    <title>Portal do Sorriso | Clínica Odontológica</title>
+    <!-- Ícones (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reset e Variáveis */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #0077b6; /* Azul odontológico */
+            --secondary-color: #00b4d8;
+            --accent-color: #90e0ef;
+            --dark-color: #03045e;
+            --light-color: #f8f9fa;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-agendar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .btn-agendar:hover {
+            background-color: var(--dark-color);
+        }
+
+        /* Seção Hero */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 119, 182, 0.8), rgba(0, 119, 182, 0.6)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+            margin-top: 70px; /* Compensar header fixo */
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-hero {
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-block;
+            border: 2px solid var(--white);
+        }
+
+        .btn-hero:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        /* Seções Gerais */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+            font-size: 2.2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Serviços */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        /* Sobre */
+        .about {
+            background-color: var(--light-color);
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Informações / Contato */
+        .info-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .info-box {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        .info-box i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .info-box h4 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .info-box p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .info-box a {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 40px 5% 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .footer-col p, .footer-col li {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .footer-col ul li i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 10px;
+            }
+            nav ul {
+                margin-top: 10px;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero {
+                margin-top: 120px;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-col ul li i {
+                margin-right: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-tooth"></i>
+            Portal do Sorriso
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <a href="#contato" class="btn-agendar">Agendar Consulta</a>
+    </header>
+
+    <!-- Hero -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Bem-vindo ao Portal do Sorriso</h1>
+            <p>Cuidando da sua saúde bucal com excelência, tecnologia e um atendimento humanizado no coração de São Paulo.</p>
+            <a href="#contato" class="btn-hero">Marque sua consulta</a>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-tooth"></i>
+                <h3>Clínica Geral</h3>
+                <p>Consultas de rotina, limpeza, restaurações e prevenção para manter sua saúde bucal em dia.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-teeth-open"></i>
+                <h3>Ortodontia</h3>
+                <p>Aparelhos fixos e móveis para alinhar seus dentes e conquistar um sorriso perfeito.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-syringe"></i>
+                <h3>Implantes</h3>
+                <p>Reposição de dentes perdidos com implantes de alta qualidade e tecnologia avançada.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-smile"></i>
+                <h3>Estética Dental</h3>
+                <p>Clareamento, lentes de contato e facetas para transformar a aparência do seu sorriso.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="about">
+        <h2 class="section-title">Sobre a Clínica</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Portal do Sorriso</h2>
+                <p>Fundada em <strong>05 de setembro de 2019</strong>, a <strong>Portal do Sorriso</strong> é uma clínica odontológica dedicada a oferecer tratamentos de alta qualidade com foco no bem-estar e na satisfação de nossos pacientes.</p>
+                <p>Localizada no bairro Cerqueira César, em São Paulo, contamos com uma equipe de profissionais especializados e infraestrutura moderna para atender desde procedimentos preventivos até tratamentos estéticos e cirúrgicos complexos.</p>
+                <p>Nosso compromisso é proporcionar um atendimento humanizado, ético e personalizado, garantindo que cada visita seja uma experiência positiva e confortável.</p>
+                <p><strong>Razão Social:</strong> Em Servico de Saude LTDA</p>
+                <p><strong>CNPJ:</strong> 34.921.401/0001-04</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=800&auto=format&fit=crop" alt="Consultório odontológico moderno">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato e Informações -->
+    <section id="contato">
+        <h2 class="section-title">Contato e Localização</h2>
+        <div class="info-container">
+            <div class="info-box">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>Endereço</h4>
+                <p>Rua Cristiano Viana, 401<br>Conj 501, 502 e 503<br>Cerqueira César - São Paulo/SP<br>CEP: 05411-000</p>
+            </div>
+            <div class="info-box">
+                <i class="fas fa-phone-alt"></i>
+                <h4>Telefone</h4>
+                <p><a href="tel:+551126152599">(11) 2615-2599</a></p>
+                <p style="margin-top:10px; font-size:0.85rem;">Atendimento de Segunda a Sexta</p>
+            </div>
+            <div class="info-box">
+                <i class="fas fa-envelope"></i>
+                <h4>E-mail</h4>
+                <p><a href="mailto:legal1@workcontabil.com.br">legal1@workcontabil.com.br</a></p>
+            </div>
+            <div class="info-box">
+                <i class="fas fa-clock"></i>
+                <h4>Horário</h4>
+                <p>Segunda a Sexta<br>09:00 às 18:00</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>Portal do Sorriso</h3>
+                <p>Clínica odontológica especializada em cuidar do seu sorriso com qualidade e dedicação.</p>
+                <p><strong>CNPJ:</strong> 34.921.401/0001-04</p>
+                <p><strong>Razão Social:</strong> Em Servico de Saude LTDA</p>
+                <p><strong>Abertura:</strong> 05/09/2019</p>
+            </div>
+            <div class="footer-col">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contato</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Rua Cristiano Viana, 401 - Conj 501/502/503</li>
+                    <li><i class="fas fa-phone"></i> (11) 2615-2599</li>
+                    <li><i class="fas fa-envelope"></i> legal1@workcontabil.com.br</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Portal do Sorriso. Todos os direitos reservados. | Atividade Odontológica - CNAE 86.30-5-04
+        </div>
+    </footer>
+
+</body>
+</html>
